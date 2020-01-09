@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Challenger</string>
+    <string name="ipaddress">http://10.0.0.1:2525</string>
+</resources>

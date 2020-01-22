@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
             //socket = IO.socket("http://85.166.159.139:3001");
             socket = IO.socket(getResources().getString(R.string.ipaddress));
             //socket = IO.socket("http://10.0.0.1:2525");
-            socket.connect();
+            //socket.connect();
             Toast.makeText(this, "joined", Toast.LENGTH_LONG).show();
         }catch(URISyntaxException e){
             e.printStackTrace();
@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     jippi.put("username", brukernavn.getText().toString());
                     jippi.put("password", SHA_256_Cryptation(passord.getText().toString(),salt));
+                    socket.connect();
                     socket.emit("connectionLogin", jippi);
                 }catch (JSONException e){
                     e.printStackTrace();
@@ -94,13 +95,15 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject data = (JSONObject) args[0];
                     try {
                         if (data.getString("message").equals("success")){
-                            Toast.makeText(getApplicationContext(), "login successful", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "login successful", Toast.LENGTH_SHORT).show();
                             String brukernavn = data.getString("session");
                             Intent intent = new Intent(MainActivity.this, UserMainWindowActivity.class);
                             intent.putExtra("theUsername", brukernavn);
+                            socket.disconnect();
                             startActivity(intent);
                         }else{
                             Toast.makeText(getApplicationContext(), data.getString("message"), Toast.LENGTH_LONG).show();
+                            socket.disconnect();
                         }
                     }catch (JSONException e){
                         e.printStackTrace();

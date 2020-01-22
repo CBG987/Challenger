@@ -74,8 +74,11 @@ public class NewUserActivity extends AppCompatActivity {
         }else {
             if(password.getText().toString().equals(passwordretype.getText().toString())){
                 if(checkpassword(password.getText().toString())){
+                    //socket.connect();
                     String sendnewuser = name.getText().toString()+"//"+email.getText().toString()+"//"+username.getText().toString()+"//"+SHA_256_Cryptation(password.getText().toString(), saltet);
                     socket.emit("newuser", sendnewuser);
+                    socket.disconnect();
+                    finish();
                 }else {
                     Toast.makeText(getApplicationContext(), "Passordet må være mellom 5-15 karaterer, kun bestå av bokstaver og tall, og inneholde minst en bokstav og et tall", Toast.LENGTH_LONG).show();
                 }
@@ -129,6 +132,5 @@ public class NewUserActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        socket.disconnect();
     }
 }

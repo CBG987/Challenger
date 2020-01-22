@@ -4,7 +4,23 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/serverrestart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="40sp"
+        android:text="Challenge"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"
+        android:text="Denne måndens challenge"/>
+
+    <TextView
+        android:id="@+id/thechallenge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
@@ -12,12 +28,82 @@
         android:textSize="20sp"/>
 
     <TextView
-        android:id="@+id/thename"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:layout_marginTop="15dp"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:text="Gjort i dag:"/>
 
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textSize="30sp"/>
+
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button
+            android:id="@+id/pluss1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center"
+            android:text="+1"/>
+        <Button
+            android:id="@+id/pluss5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="115dp"
+            android:layout_gravity="center"
+            android:text="+5"/>
+        <Button
+            android:id="@+id/pluss10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="215dp"
+            android:layout_gravity="center"
+            android:text="+10"/>
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+        <Button
+            android:id="@+id/minus1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center"
+            android:text="-1"/>
+        <Button
+            android:id="@+id/minus5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="115dp"
+            android:layout_gravity="center"
+            android:text="-5"/>
+    </RelativeLayout>
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:fillViewport="true">
+        <TableLayout
+            android:id="@+id/liste"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:stretchColumns="0,1,2,3">
+        </TableLayout>
+    </ScrollView>
 
 </LinearLayout>
